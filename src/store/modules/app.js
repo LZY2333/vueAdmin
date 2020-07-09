@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie'
 
 const state = {
-  sidebar: {
+  sidebar: { // 第一次进的时候读cookie，使用时再读用内存里的，修改的时候cookie和内存中的都改
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
-    withoutAnimation: false
+    withoutAnimation: false// !!+'0' = false  !!'0' = true
   },
   device: 'desktop'
 }
