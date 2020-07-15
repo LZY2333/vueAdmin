@@ -1,10 +1,25 @@
 import request from '@/utils/request'
 
 export function login(data) {
-  return request({
-    url: '/vue-admin-template/user/login',
-    method: 'post',
-    data
+  // 负责登录
+  return new Promise((resolve, reject) => {
+    // 问问其他方式的token怎么拿
+    const query = window.location.search.substring(1)
+    const vars = query.split('&')
+
+    let token = ''
+    console.log('query', query)
+    console.log('vars', vars)
+
+    for (let i = 0; i < vars.length; i++) {
+      const pair = vars[i].split('=')
+      if (pair[0] === 'token') token = pair[1]
+    }
+    if (token) {
+      resolve(token)
+    } else {
+      reject('token获取失败')
+    }
   })
 }
 

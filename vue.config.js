@@ -36,6 +36,8 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    // 这样就可以用其他域名来访问了，比如lzy.byd.com
+    disableHostCheck: true,
     before: require('./mock/mock-server.js')
   },
   configureWebpack: {
