@@ -8,8 +8,6 @@ export function login(data) {
     const vars = query.split('&')
 
     let token = ''
-    console.log('query', query)
-    console.log('vars', vars)
 
     for (let i = 0; i < vars.length; i++) {
       const pair = vars[i].split('=')
